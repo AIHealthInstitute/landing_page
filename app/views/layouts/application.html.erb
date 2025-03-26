@@ -401,7 +401,7 @@
         <p class="text-sm leading-6 text-gray-900">
           🔬 New: AI Health Institute First Benchmarking Report is out! 🔬
         </p>
-        <%= link_to "Read now <span aria-hidden=\"true\">→</span>".html_safe, report_path, class: "flex-none rounded-full bg-indigo-600 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+        <%= link_to "Read now <span aria-hidden=\"true\">→</span>".html_safe, report_path, class: "flex-none rounded-full bg-indigo-600 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", data: { turbo: false } %>
       </div>
       <div class="flex flex-1 justify-end">
         <button type="button" data-action="notification#hide" class="-m-3 p-3 focus-visible:outline-offset-[-4px]">
