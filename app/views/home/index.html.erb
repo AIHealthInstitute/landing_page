@@ -1,446 +1,175 @@
-<header class="bg-white shadow-sm">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
-      <div class="flex items-center">
-        <%= image_tag "logo.png", class: "h-8 w-auto", alt: "Logo" %>
-        <span class="ml-4 text-xl font-semibold text-gray-900">AI Health Institute</span>
-      </div>
-      <div>
-        <a href="https://blog.aihealthinstitute.org" class="text-gray-900 hover:text-gray-700">Blog</a>
-      </div>
-    </div>
-  </div>
-</header>
-<div class="relative isolate overflow-hidden bg-slate-50 lg:bg-gradient-to-br lg:from-slate-50 lg:to-indigo-50/70">
-  <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(79, 70, 229, 0.03)\"%3E%3C/path%3E%3C/svg%3E')] opacity-50"></div>
-  <div class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
-    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center lg:gap-y-10">
-      <div class="relative">
-        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-        <div class="relative">
-          <h1 class="relative max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mx-8">
-            AI alignment for healthcare
-          </h1>
-          <p class="mt-6 text-lg leading-8 text-gray-600 mx-8 text-justify">
-            Our mission is to advance the safe, ethical, and impactful use of medical artificial intelligence to improve patient care, reduce healthcare disparities, and support the well-being of clinicians.
-          </p>
-          <p class="mt-4 text-lg leading-8 text-gray-600 mx-8 text-justify">
-            We are committed to fostering innovation in AI technology while prioritizing patient safety, data privacy, and equitable access to these transformative solutions.
-          </p>
-          <p class="mt-4 text-lg leading-8 text-gray-600 mx-8 text-justify">
-            Through research, education, collaboration, and advocacy, we aim to ensure that medical AI evolves as a trusted partner in healthcare, empowering professionals and enhancing outcomes for all.
-          </p>
-          <div class="mt-10 flex items-center gap-x-6 mx-4">
-            <a href="mailto:contact@aihealthinstitute.org" class="rounded-md bg-gray-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-800">
-              Contact us
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="relative h-full lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <div class="absolute inset-0 bg-indigo-100/30 lg:bg-gradient-to-br lg:from-indigo-100/30 lg:to-violet-100/30"></div>
-        <div class="absolute inset-0 bg-gradient-to-l from-transparent to-white/50 lg:block"></div>
-        <canvas id="canvas" class="absolute inset-0"></canvas>
-        <div class="absolute -bottom-4 -right-4 w-72 h-72 bg-indigo-300/5 lg:bg-gradient-to-br lg:from-indigo-300/5 lg:to-violet-300/5 rounded-full blur-3xl"></div>
-      </div>
-    </div>
-  </div>
-</div>
 
+   
 
-<div class="bg-white py-24 sm:py-32">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <h2 class="text-center text-lg/8 font-semibold text-gray-900">Benchmarking models from</h2>
-    <div class="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-4 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-4">
-      <%= image_tag "Google.png", class: "col-span-1 max-h-12 w-full object-contain", alt: "Google" %>
-      <%= image_tag "MSFT.jpg", class: "col-span-1 max-h-12 w-full object-contain", alt: "Microsoft" %>
-      <%= image_tag "anth.png", class: "col-span-1 max-h-12 w-full object-contain", alt: "Anthropic" %>
-      <%= image_tag "oai.png", class: "col-span-1 max-h-12 w-full object-contain", alt: "OpenAI" %>
-    </div>
-  </div>
-</div>
+   
 
-<div class="bg-white py-24 sm:py-32">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl lg:mx-0">
-      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Team</h2>
-      <p class="mt-6 text-lg leading-8 text-gray-600">
-        Led by experienced professionals in AI and healthcare, committed to transforming patient care through ethical innovation.
-      </p>
-    </div>
-    <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-      <div class="flex flex-col items-start">
-        <div class="rounded-2xl bg-gray-50 p-6 ring-1 ring-inset ring-gray-900/5">
-          <div class="flex items-center gap-x-4 mb-4">
-            <%= image_tag "elie.webp", class: "inline-block h-16 w-16 rounded-full", alt: "Elie Toubiana" %>
-            <div>
-              <h3 class="text-lg font-semibold leading-8 tracking-tight text-gray-900">Elie Toubiana</h3>
-              <p class="text-base leading-7 text-gray-600">CEO, ScribeMD.ai</p>
+    <main>
+        <section class="hero container">
+            <div class="hero-content">
+                <h1>AI alignment for healthcare</h1>
+                <p>
+                    Our mission is to advance the safe, ethical, and impactful use of medical artificial intelligence to improve patient care and support clinicians.
+                </p>
+                <a href="#contact" class="cta-button">Contact us</a>
             </div>
-          </div>
-          <p class="mt-4 text-base leading-7 text-gray-600">
-            An AI engineer and entrepreneur who is working on helping clinical practices and workflows through innovative tools and solutions. His developments have significantly impacted healthcare delivery, currently serving over 10,000 physicians worldwide, streamlining patient care and improving clinical outcomes.
-          </p>
-        </div>
-      </div>
-      <div class="flex flex-col items-start">
-        <div class="rounded-2xl bg-gray-50 p-6 ring-1 ring-inset ring-gray-900/5">
-          <div class="flex items-center gap-x-4 mb-4">
-            <%= image_tag "max.png", class: "inline-block h-16 w-16 rounded-full", alt: "Maxime Cohen" %>
-            <div>
-              <h3 class="text-lg font-semibold leading-8 tracking-tight text-gray-900">Maxime Cohen</h3>
-              <p class="text-base leading-7 text-gray-600">Scale AI Chair Professor at McGill University & Chief of AI Strategy of the CIUSSS West-Central Montreal (Jewish General Hospital)</p>
+            <div class="hero-animation-container">
+                <canvas id="hero-animation"></canvas>
             </div>
-          </div>
-          <p class="mt-4 text-base leading-7 text-gray-600">
-            A distinguished leader in healthcare AI and academic research, Dr. Cohen brings extensive expertise in artificial intelligence applications in healthcare settings. His dual role at the Jewish General Hospital and McGill University bridges the gap between theoretical advancement and practical implementation of AI in healthcare.
-          </p>
-        </div>
-      </div>
-      <div class="flex flex-col items-start">
-        <div class="rounded-2xl bg-gray-50 p-6 ring-1 ring-inset ring-gray-900/5">
-          <div class="flex items-center gap-x-4 mb-4">
-            <%= image_tag "eddy.jpeg", class: "inline-block h-16 w-16 rounded-full", alt: "Eddy Hage-Youssef" %>
-            <div>
-              <h3 class="text-lg font-semibold leading-8 tracking-tight text-gray-900">Eddy Hage-Youssef</h3>
-              <p class="text-base leading-7 text-gray-600">Research Assistant</p>
+        </section>
+
+        <section class="trust-bar">
+            <div class="container">
+                <h2>Benchmarking models from</h2>
+                <div class="logos-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Anthropic_logo.svg" alt="Anthropic">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI">
+                    <!-- Add other logos like Meta, Mistral if desired -->
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Mistral_AI_logo_%282025%E2%80%93%29.svg" alt="Mistral AI">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta">
+
+                </div>
             </div>
-          </div>
-          <p class="mt-4 text-base leading-7 text-gray-600">
-            Eddy is a 4th year Computer Science & Statistics student at McGill University. He conducts research on AI agents across various applications under the supervision of Professor Cohen.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+        </section>
+
+        <section class="content-section container">
+            <div class="info-card">
+                <h2>Our Mission</h2>
+                <p>
+                    We are committed to fostering innovation in AI technology while prioritizing patient safety, data privacy, and equitable access to these transformative solutions.
+                </p>
+                <p>
+                    Through research, education, collaboration, and advocacy, we aim to ensure that medical AI evolves as a trusted partner in healthcare, empowering professionals and enhancing outcomes for all.
+                </p>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <div class="container">
+                 <h2>Our Team</h2>
+                <p style="text-align: center; color: var(--secondary); max-width: 700px; margin: -20px auto 40px auto;">
+                    Led by experienced professionals in AI and healthcare, committed to transforming patient care through ethical innovation.
+                </p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="<%= asset_path('elie.webp') %>" alt="Elie Toubiana">
+                        <h3>Elie Toubiana</h3>
+                        <p class="title">CEO, ScribeMD.ai</p>
+                        <p>An AI engineer and entrepreneur working on helping clinical practices through innovative tools. His developments currently serve over 10,000 physicians worldwide.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="<%= asset_path('max.png') %>" alt="Maxime Cohen">
+                        <h3>Maxime Cohen</h3>
+                        <p class="title">Scale AI Chair Professor, McGill University & Chief AI Strategy, CIUSSS West-Central Montreal</p>
+                        <p>A distinguished leader bridging the gap between theoretical advancement and practical implementation of AI in healthcare.</p>
+                    </div>
+                    <div class="team-member">
+                         <img src="<%= asset_path('eddy.jpeg') %>" alt="Eddy Hage-Youssef">
+                        <h3>Eddy Hage-Youssef</h3>
+                        <p class="title">Research Assistant</p>
+                        <p>A 4th year Computer Science & Statistics student at McGill University, researching AI agents across various applications under Professor Cohen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
+    </main>
 
-
-
-<script>
-window.requestAnimFrame = (function() {
-    return window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        window.msRequestAnimationFrame ||
-        function(callback) {
-            window.setTimeout(callback, 1000 / 60);
-        };
-})();
-
-//Initialise
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-ctx.scale(2, 2);
-var onMobile = false;
-
-// Get parent container dimensions instead of window
-var container = canvas.parentElement;
-var w = container.clientWidth,
-    h = container.clientHeight;
-canvas.width = w;
-canvas.height = h;
-
-//variables for animation
-
-//number of particles
-var particleNum;
-var particles = [];
-particleAmount();
-
-var minDist = w / 7;
-if (minDist < 200) {
-    minDist = 210;
-} else if (minDist > 300) {
-    minDist = 300;
-}
-
-var dist;
-var mx, my;
-var mouseDown = false;
-var nodecount = 0;
-
-function particleAmount() {
-    particleNum = (w / 50);
-    if (particleNum < 20) particleNum = 20;
-    particles = [];
-    //create and store particles in array
-    for (var i = 0; i < particleNum; i++) {
-        particles.push(new Particle());
-        particles[i].x = (i * (w / particleNum));
-    }
-}
-
-//get mouse position relative to canvas
-canvas.addEventListener('mousemove', function(evt) {
-    var rect = canvas.getBoundingClientRect();
-    mx = evt.clientX - rect.left;
-    my = evt.clientY - rect.top;
-}, false);
-
-//paint background
-function paintCanvas() {
-    ctx.fillStyle = "#77CCA4";
-    ctx.fillRect(0, 0, w, h);
-}
-
-//particle class
-function Particle() {
-    this.y = Math.random() * h;
-    this.vy = (Math.random() * -1) / 3;
-
-    //size of Particle
-    this.radius = 1.5;
-
-    //draw particle
-    this.draw = function() {
-        var dist = Math.abs(this.y - h / 2);
-
-        ctx.fillStyle = "rgba(255,255,255, 0.8)";
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-        ctx.fill();
-        ctx.closePath();
-    }
-
-    this.drawMobile = function() {
-        var dist = Math.abs(this.y - h / 2);
-
-        ctx.fillStyle = "rgba(255,255,255, " + (0 + dist / minDist) / 1.1 + ")";
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-        ctx.fill();
-        ctx.closePath();
-
-        ctx.beginPath();
-        ctx.strokeStyle = "rgba(255,255,255," + (1 - dist / minDist) / 2 + ")";
-        ctx.moveTo(p.x, 0);
-        ctx.lineTo(p.x, h);
-        ctx.stroke();
-        ctx.closePath();
-
-        ctx.beginPath();
-        ctx.strokeStyle = "rgba(255,255,255," + (1 - dist / minDist) / 2 + ")";
-        ctx.moveTo(0, p.y);
-        ctx.lineTo(w, p.y);
-        ctx.stroke();
-        ctx.closePath();
-    }
-}
-
-function draw() {
-    paintCanvas();
-    for (var i = 0; i < particles.length; i++) {
-        p = particles[i];
-        if (!onMobile) {
-            p.draw();
-        } else {
-            p.drawMobile();
-        }
-    }
-    update();
-}
-
-var amplitude = h / 200;
-var period = 100.0;
-var theta = 0.0;
-var dx = ((Math.PI * 2) / particleNum);
-
-//particles motion
-function update() {
-    if (!onMobile) {
-        theta += 0.0025;
-        var x = theta;
-
-        //amplitude calculation
-        if (onMobile) {
-            amplitude = w / 10;
-        } else {
-            if (amplitude < 300) {
-                amplitude = w / 10;
-            } else {
-                amplitude = 300;
-            }
-        }
-
-        for (var i = 0; i < particles.length; i++) {
-            p = particles[i];
-            if (i % 2 == 0)
-                p.y = (Math.sin(x) * amplitude) + h / 2;
-            else
-                p.y = (1 - Math.sin(x) * amplitude) + h / 2;
-
-            x += dx;
-
-            //make sure the particles don't escape
-            if (p.x + p.radius > w) {
-                p.x = p.radius;
-            } else if (p.x - p.radius < 0) {
-                p.x = w - p.radius;
-            }
-
-            if (p.y + p.radius > h) {
-                p.y = p.radius;
-            } else if (p.y - p.radius < 0) {
-                p.y = h - p.radius;
-            }
-
-            //check distance from current particle to all others
-            for (var j = i + 1; j < particles.length; j++) {
-                var p2 = particles[j];
-                distance(p, p2);
-            }
-
-            if (mouseDown) {
-                mouseRepel(p, mx, my);
-            } else {
-                mouseAttract(p, mx, my);
-            }
-
-        }
-    } else {
-        for (var i = 0; i < particles.length; i++) {
-            p = particles[i];
-            p.y += p.vy;
-
-            //make sure the particles don't escape
-            if (p.x + p.radius > w) {
-                p.x = p.radius;
-            } else if (p.x - p.radius < 0) {
-                p.x = w - p.radius;
-            }
-
-            if (p.y + p.radius > h) {
-                p.y = p.radius;
-            } else if (p.y - p.radius < 0) {
-                p.y = h - p.radius;
-            }
-
-            if (mouseDown) {
-                mouseRepel(p, mx, my);
-            }
-        }
-    }
-}
-
-//distance between particles
-function distance(p1, p2) {
-    var dist;
-    var dx = p1.x - p2.x;
-    var dy = p1.y - p2.y;
-
-    dist = Math.sqrt(dx * dx + dy * dy);
-
-    if (dist <= minDist) {
-        ctx.beginPath();
-        ctx.strokeStyle = "rgba(255,255,255,0.4)";
-        ctx.moveTo(p1.x, p1.y);
-        ctx.lineTo(p2.x, p2.y);
-        ctx.stroke();
-        ctx.closePath();
-    }
-}
-
-//reposition particles on container size change
-function repositionParticles() {
-    w = container.clientWidth;
-    h = container.clientHeight;
-    canvas.width = w;
-    canvas.height = h;
     
-    particleAmount();
-    for (var i = 0; i < particles.length; i++) {
-        particles[i].x = (i * (w / particleNum));
-    }
-    minDist = w / 6;
-    if (minDist < 210) {
-        minDist = 210;
-    } else if (minDist > 300) {
-        minDist = 300;
-    }
 
-    if (amplitude < 300) {
-        amplitude = w / 10;
-    } else {
-        amplitude = 300;
-    }
+    <script>
+        // --- Simple Particle Animation ---
+        const canvas = document.getElementById('hero-animation');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const particleCount = 50; // Adjust particle density
 
-    dx = ((Math.PI * 2) / particleNum);
-}
-
-function mouseAttract(p, mousex, mousey) {
-    var dist;
-    var dx = p.x - mousex;
-    var dy = p.y - mousey;
-    var mass = 12;
-    dist = Math.sqrt(dx * dx + dy * dy);
-
-    if (amplitude > 150) amplitude -= 0.07 - (1 / (amplitude - 150));
-
-    if (dist <= minDist) {
-        ctx.beginPath();
-        ctx.strokeStyle = "rgba(255,255,255," + (1.2 - dist / minDist) + ")";
-        ctx.moveTo(p.x, p.y);
-        ctx.lineTo(mousex, mousey);
-        ctx.stroke();
-        ctx.closePath();
-
-        if (p.radius < 5) {
-            p.radius += 0.1;
+        function resizeCanvas() {
+            const container = document.querySelector('.hero-animation-container');
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
         }
-    } else {
-        p.radius -= 0.05 * 1.5;
-        if (p.radius <= 1.5) {
-            p.radius = 1.5;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1; // Particle size
+                this.speedX = Math.random() * 1 - 0.5; // Slower speed
+                this.speedY = Math.random() * 1 - 0.5;
+                this.color = 'rgba(56, 161, 105, 0.5)'; // Use primary color with alpha
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                // Boundary check (bounce)
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
         }
-    }
-}
 
-function mouseRepel(p, mousex, mousey) {
-    var dist;
-    var dx = p.x - mousex;
-    var dy = p.y - mousey;
-    theta += 0.0003;
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
 
-    dist = Math.sqrt(dx * dx + dy * dy);
+        function connectParticles() {
+            const maxDistance = 100; // Max distance to draw a line
+            ctx.strokeStyle = 'rgba(113, 128, 150, 0.15)'; // Secondary color with low alpha for lines
+            ctx.lineWidth = 0.5;
 
-    if (amplitude < 300)
-        amplitude += 0.1;
-    else if (amplitude >= 300)
-        amplitude = 300;
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a + 1; b < particles.length; b++) { // Start from a+1 to avoid duplicates and self-connection
+                    const dx = particles[a].x - particles[b].x;
+                    const dy = particles[a].y - particles[b].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
 
-    if (dist <= minDist) {
-        ctx.beginPath();
-        ctx.strokeStyle = "rgba(255,255,255," + (1.2 - dist / minDist) + ")";
-        ctx.moveTo(p.x, p.y);
-        ctx.lineTo(mousex, mousey);
-        ctx.stroke();
-        ctx.closePath();
-    }
-}
+                    if (distance < maxDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
 
-canvas.onmousedown = function(evt) {
-    mouseDown = true;
-}
-canvas.onmouseup = function(evt) {
-    mouseDown = false;
-}
 
-//begin the animation loop
-function animLoop() {
-    draw();
-    requestAnimFrame(animLoop);
-}
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            connectParticles(); // Draw lines between nearby particles
+            requestAnimationFrame(animate);
+        }
 
-animLoop();
+        // --- Initialization ---
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initParticles(); // Reinitialize on resize if needed, or just adjust positions
+        });
 
-// Listen for container size changes
-const resizeObserver = new ResizeObserver(() => {
-    repositionParticles();
-});
-resizeObserver.observe(container);
+        // Initial setup
+        resizeCanvas();
+        initParticles();
+        animate();
 
-</script>
+        // --- Banner Dismissal (already handled inline) ---
+
+    </script>
+

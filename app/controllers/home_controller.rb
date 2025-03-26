@@ -3,5 +3,6 @@ class HomeController < ApplicationController
   end
 
   def report
+    @hide_header=true
   end
 end

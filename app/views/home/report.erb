@@ -1,80 +1,1002 @@
-<% content_for :title, "AI LLM Benchmarking Report - AI Health Institute" %>
 
-<header class="bg-white shadow-sm">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
-      <div class="flex items-center">
-        <%= image_tag "logo.png", class: "h-8 w-auto", alt: "Logo" %>
-        <span class="ml-4 text-xl font-semibold text-gray-900">AI Health Institute</span>
+  <div class="container mx-auto px-4 py-8">
+    <header>
+      <div class="logo">
+        <span class="logo-icon" style="color: #38a169;">⚕️</span> AI Health Institute
       </div>
-      <div>
-        <a href="/" class="text-gray-900 hover:text-gray-700 mr-4">Home</a>
-        <a href="https://blog.aihealthinstitute.org" class="text-gray-900 hover:text-gray-700">Blog</a>
+      <nav>
+        <ul>
+          <li><a href="#" class="active" id="benchmarks-nav">Benchmarks</a></li>
+          <li><a href="#" id="methodology-nav">Methodology</a></li>
+          <li><a href="#" id="datasets-nav">Datasets</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <!-- Benchmarks Page -->
+    <div id="benchmarks-page" class="page active-page">
+      <div class="dashboard-header">
+        <div class="title-area">
+          <h1 id="dataset-title">MedQA Performance Evaluation</h1>
+          <div class="subtitle">Comparative analysis of large language models on medical question answering tasks</div>
+        </div>
+        <div class="filters">
+          <button class="filter-button" id="filter-button" style="display: none;">Filter by Subject <span class="sort-icon">◉</span></button>
+        </div>
       </div>
+      
+      <div class="dataset-selector">
+        <button class="dataset-button active" id="medqa-button">MedQA</button>
+        <button class="dataset-button" id="medmcqa-button">MedMCQA</button>
+        <button class="dataset-button" id="clinical-notes-button">Clinical Notes <span class="coming-soon">Coming soon</span></button>
+        <button class="dataset-button" id="diagnosis-button">Diagnosis <span class="coming-soon">Coming soon</span></button>
+        <button class="dataset-button" id="bedside-manner-button">Bedside Manner <span class="coming-soon">Coming soon</span></button>
+      </div>
+      
+      <div class="tabs">
+        <div class="tab active" id="performance-tab">Performance</div>
+      </div>
+      
+      <div class="tables-container">
+        <table class="results-table" id="medqa-data">
+          <thead>
+            <tr>
+              <th class="rank">#</th>
+              <th>Model</th>
+              <th class="sort-header">
+                <button class="sort-button desc" data-column="accuracy">
+                  Accuracy <span class="sort-icon">▼</span>
+                </button>
+              </th>
+              <th>Accuracy - 95% CI</th>
+              <th class="sort-header">
+                <button class="sort-button" data-column="input-cost">
+                  Input Cost (/1M tokens) <span class="sort-icon">◆</span>
+                </button>
+              </th>
+              <th class="sort-header">
+                <button class="sort-button" data-column="output-cost">
+                  Output Cost (/1M tokens) <span class="sort-icon">◆</span>
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="rank">1</td>
+              <td class="model-name">
+                <div class="model-icon top-performer">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI">
+                </div>
+                OpenAI o3-mini
+              </td>
+              <td class="accuracy">95.19%</td>
+              <td class="confidence-interval">94.76% - 95.59%</td>
+              <td class="cost">$1.1</td>
+              <td class="cost">$4.4</td>
+            </tr>
+            <tr>
+              <td class="rank">2</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/DeepSeek_logo.svg" alt="DeepSeek">
+                </div>
+                DeepSeek-R1
+              </td>
+              <td class="accuracy">91.91%</td>
+              <td class="confidence-interval">91.36% - 92.42%</td>
+              <td class="cost">$0.55</td>
+              <td class="cost">$2.19</td>
+            </tr>
+            <tr>
+              <td class="rank">3</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta">
+                </div>
+                Llama 3.3 70B Instruct
+              </td>
+              <td class="accuracy">90.88%</td>
+              <td class="confidence-interval">90.31% - 91.42%</td>
+              <td class="cost">$0.12</td>
+              <td class="cost">$0.3</td>
+            </tr>
+            <tr>
+              <td class="rank">4</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Anthropic_logo.svg" alt="Anthropic">
+                </div>
+                Claude 3.7 Sonnet
+              </td>
+              <td class="accuracy">87.88%</td>
+              <td class="confidence-interval">87.23% - 88.5%</td>
+              <td class="cost">$3</td>
+              <td class="cost">$15</td>
+            </tr>
+            <tr>
+              <td class="rank">5</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" alt="Google">
+                </div>
+                Gemini Flash 2.0
+              </td>
+              <td class="accuracy">82.7%</td>
+              <td class="confidence-interval">81.95% - 83.42%</td>
+              <td class="cost">$0.1</td>
+              <td class="cost">$0.4</td>
+            </tr>
+            <tr>
+              <td class="rank">6</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" alt="Google">
+                </div>
+                Gemini 2.0 Flash Lite
+              </td>
+              <td class="accuracy">77.18%</td>
+              <td class="confidence-interval">76.36% - 77.99%</td>
+              <td class="cost">$0.075</td>
+              <td class="cost">$0.3</td>
+            </tr>
+            <tr>
+              <td class="rank">7</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Mistral_AI_logo_%282025%E2%80%93%29.svg" alt="Mistral AI">
+                </div>
+                Mistral Large 2411
+              </td>
+              <td class="accuracy">74.23%</td>
+              <td class="confidence-interval">73.37% - 75.07%</td>
+              <td class="cost">$2</td>
+              <td class="cost">$6</td>
+            </tr>
+            <tr>
+              <td class="rank">8</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI">
+                </div>
+                OpenAI GPT-4o-mini
+              </td>
+              <td class="accuracy">73.99%</td>
+              <td class="confidence-interval">73.13% - 74.84%</td>
+              <td class="cost">$0.15</td>
+              <td class="cost">$0.6</td>
+            </tr>
+            <tr>
+              <td class="rank">9</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Mistral_AI_logo_%282025%E2%80%93%29.svg" alt="Mistral AI">
+                </div>
+                Mistral Small 3.1 24B
+              </td>
+              <td class="accuracy">68.77%</td>
+              <td class="confidence-interval">67.86% - 69.67%</td>
+              <td class="cost">$0.1</td>
+              <td class="cost">$0.3</td>
+            </tr>
+            <tr>
+              <td class="rank">10</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Qwen_2.5.jpg" alt="Qwen">
+                </div>
+                Qwen2.5 32B Instruct
+              </td>
+              <td class="accuracy">68.77%</td>
+              <td class="confidence-interval">67.86% - 69.66%</td>
+              <td class="cost">$0.79</td>
+              <td class="cost">$0.79</td>
+            </tr>
+            <tr>
+              <td class="rank">11</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" alt="Google">
+                </div>
+                Gemma 3 - 27b
+              </td>
+              <td class="accuracy">67.44%</td>
+              <td class="confidence-interval">66.53% - 68.35%</td>
+              <td class="cost">$0.1</td>
+              <td class="cost">$0.2</td>
+            </tr>
+            <tr>
+              <td class="rank">12</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta">
+                </div>
+                Llama 3.2 3B Instruct
+              </td>
+              <td class="accuracy">67.29%</td>
+              <td class="confidence-interval">66.37% - 68.2%</td>
+              <td class="cost">$0.015</td>
+              <td class="cost">$0.025</td>
+            </tr>
+            <tr>
+              <td class="rank">13</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" alt="Google">
+                </div>
+                Gemini Flash 1.5 8B
+              </td>
+              <td class="accuracy">59.59%</td>
+              <td class="confidence-interval">58.63% - 60.54%</td>
+              <td class="cost">$0.0375</td>
+              <td class="cost">$0.15</td>
+            </tr>
+
+          </tbody>
+        </table>
+        
+        <table class="results-table" id="medmcqa-data" style="display: none;">
+          <thead>
+            <tr>
+              <th class="rank">#</th>
+              <th>Model</th>
+              <th class="sort-header">
+                <button class="sort-button desc" data-column="accuracy">
+                  Accuracy <span class="sort-icon">▼</span>
+                </button>
+              </th>
+              <th>Accuracy - 95% CI</th>
+              <th class="sort-header">
+                <button class="sort-button" data-column="input-cost">
+                  Input Cost (/1M tokens) <span class="sort-icon">◆</span>
+                </button>
+              </th>
+              <th class="sort-header">
+                <button class="sort-button" data-column="output-cost">
+                  Output Cost (/1M tokens) <span class="sort-icon">◆</span>
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="rank">1</td>
+              <td class="model-name">
+                <div class="model-icon top-performer">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta">
+                </div>
+                Llama 3.3 70B Instruct
+              </td>
+              <td class="accuracy">91.83%</td>
+              <td class="confidence-interval">91.67% - 91.98%</td>
+              <td class="cost">$0.12</td>
+              <td class="cost">$0.3</td>
+            </tr>
+            <tr>
+              <td class="rank">2</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/DeepSeek_logo.svg" alt="DeepSeek">
+                </div>
+                DeepSeek-R1
+              </td>
+              <td class="accuracy">87.96%</td>
+              <td class="confidence-interval">87.77% - 88.14%</td>
+              <td class="cost">$0.55</td>
+              <td class="cost">$2.19</td>
+            </tr>
+            <tr>
+              <td class="rank">3</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Anthropic_logo.svg" alt="Anthropic">
+                </div>
+                Claude 3.7 Sonnet
+              </td>
+              <td class="accuracy">86.15%</td>
+              <td class="confidence-interval">85.96% - 86.35%</td>
+              <td class="cost">$3</td>
+              <td class="cost">$15</td>
+            </tr>
+            <tr>
+              <td class="rank">4</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI">
+                </div>
+                OpenAI o3-mini
+              </td>
+              <td class="accuracy">85.64%</td>
+              <td class="confidence-interval">85.01% - 86.25%</td>
+              <td class="cost">$1.1</td>
+              <td class="cost">$4.4</td>
+            </tr>
+            <tr>
+              <td class="rank">5</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" alt="Google">
+                </div>
+                Gemini Flash 2.0
+              </td>
+              <td class="accuracy">83.28%</td>
+              <td class="confidence-interval">83.07% - 83.49%</td>
+              <td class="cost">$0.1</td>
+              <td class="cost">$0.4</td>
+            </tr>
+            <tr>
+              <td class="rank">6</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" alt="Google">
+                </div>
+                Gemini 2.0 Flash Lite
+              </td>
+              <td class="accuracy">79.63%</td>
+              <td class="confidence-interval">79.4% - 79.85%</td>
+              <td class="cost">$0.075</td>
+              <td class="cost">$0.3</td>
+            </tr>
+            <tr>
+              <td class="rank">7</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Mistral_AI_logo_%282025%E2%80%93%29.svg" alt="Mistral AI">
+                </div>
+                Mistral Large 2411
+              </td>
+              <td class="accuracy">76.01%</td>
+              <td class="confidence-interval">75.75% - 76.27%</td>
+              <td class="cost">$2</td>
+              <td class="cost">$6</td>
+            </tr>
+            <tr>
+              <td class="rank">8</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI">
+                </div>
+                OpenAI GPT-4o-mini
+              </td>
+              <td class="accuracy">75.22%</td>
+              <td class="confidence-interval">74.97% - 75.46%</td>
+              <td class="cost">$0.15</td>
+              <td class="cost">$0.6</td>
+            </tr>
+            <tr>
+              <td class="rank">9</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Qwen_2.5.jpg" alt="Qwen">
+                </div>
+                Qwen2.5 32B Instruct
+              </td>
+              <td class="accuracy">73.11%</td>
+              <td class="confidence-interval">72.86% - 73.36%</td>
+              <td class="cost">$0.79</td>
+              <td class="cost">$0.79</td>
+            </tr>
+            <tr>
+              <td class="rank">10</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta">
+                </div>
+                Llama 3.2 3B Instruct
+              </td>
+              <td class="accuracy">72.05%</td>
+              <td class="confidence-interval">71.8% - 72.31%</td>
+              <td class="cost">$0.015</td>
+              <td class="cost">$0.025</td>
+            </tr>
+            <tr>
+              <td class="rank">11</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Mistral_AI_logo_%282025%E2%80%93%29.svg" alt="Mistral AI">
+                </div>
+                Mistral Small 3.1 24B
+              </td>
+              <td class="accuracy">71.75%</td>
+              <td class="confidence-interval">71.49% - 72.0%</td>
+              <td class="cost">$0.1</td>
+              <td class="cost">$0.3</td>
+            </tr>
+            <tr>
+              <td class="rank">12</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" alt="Google">
+                </div>
+                Gemma 3 27B
+              </td>
+              <td class="accuracy">70.14%</td>
+              <td class="confidence-interval">69.88% - 70.4%</td>
+              <td class="cost">$0.1</td>
+              <td class="cost">$0.2</td>
+            </tr>
+            <tr>
+              <td class="rank">13</td>
+              <td class="model-name">
+                <div class="model-icon">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" alt="Google">
+                </div>
+                Gemini Flash 1.5 8B
+              </td>
+              <td class="accuracy">64.56%</td>
+              <td class="confidence-interval">64.29% - 64.83%</td>
+              <td class="cost">$0.0375</td>
+              <td class="cost">$0.15</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div id="coming-soon-message" class="coming-soon-container" style="display: none;">
+          <div class="coming-soon-message">Benchmarking data is coming soon!</div>
+        </div>
+      </div>
+      
+      <div class="updated-date">
+        Last updated: March 25, 2025
+      </div>
+      
+    </div>
+
+    
+    <!-- Methodology Page -->
+<div id="methodology-page" class="page">
+  <div class="dashboard-header">
+    <div class="title-area">
+      <h1>Benchmark Methodology</h1>
+      <div class="subtitle">How we evaluate language models on medical tasks</div>
     </div>
   </div>
-</header>
+  
+  <div style="display: flex; gap: 20px; margin-top: 0;">
+    <div class="key-insights" style="flex: 1; margin-top: 0;">
+      <h2>Evaluation Framework</h2>
+      <p style="margin-bottom: 20px;">Our benchmarking methodology follows a rigorous protocol designed to assess LLMs on their medical knowledge, reasoning, and clinical relevance.</p>
+      
+      <h3 style="margin-bottom: 10px; font-size: 18px;">Key Principles</h3>
+      <ul class="insights-list">
+        <li><strong>Standardized Prompting:</strong> We use identical prompts across all models to ensure fair and consistent comparisons.</li>
+        <li><strong>Default Model Configurations:</strong> All models are run with their default configuration.</li>
+        <li><strong>Objective Evaluation:</strong> We measure performance against standardized evaluation datasets to provide quantifiable and reproducible results.</li>
+        <li><strong>Transparency and Collaboration:</strong> Our methods are open-source to encourage collaboration and community contributions.</li>
+      </ul>
+      
+      <h3 style="margin-bottom: 10px; margin-top: 20px; font-size: 18px;">Standard Prompt Template</h3>
+      <div class="code-container" style="background-color: #f5f5f5; border-radius: 6px; padding: 15px; margin-bottom: 20px; overflow: auto; border: 1px solid #e0e0e0;">
+        <pre style="margin: 0; white-space: pre-wrap; font-family: 'Courier New', monospace; font-size: 14px;"><code>You are a medical assistant. Please answer the following multiple choice question.
 
-<div class="bg-gradient-to-b from-indigo-50 to-white py-16 sm:py-24">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-4xl text-center">
-      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">AI LLM Benchmarking Report</h1>
-      <p class="mt-6 text-lg leading-8 text-gray-600">
-        Comprehensive analysis of 6 leading Large Language Models across multiple healthcare datasets
-      </p>
+Question: {question}
+
+Options:
+{options}
+
+## Output Format:
+Please provide your answer in JSON format that contains an "answer" field.
+
+Example response format:
+{"answer": "X. exact option text here"}
+
+Important:
+- Please ensure that your answer is in valid JSON format.</code></pre>
+      </div>
+    </div>
+
+    <!-- Right Column - Example with MedMCQA Question -->
+    <div class="key-insights" style="flex: 1; margin-top: 0;">
+      <h2>Example Prompt</h2>
+      <p style="margin-bottom: 20px;">Question extracted from the MedMCQA dataset</p>
+      
+      <h3 style="margin-bottom: 10px; font-size: 18px;">Sample Question Prompt</h3>
+      <div class="code-container" style="background-color: #f5f5f5; border-radius: 6px; padding: 15px; margin-bottom: 20px; overflow: auto; border: 1px solid #e0e0e0;">
+        <pre style="margin: 0; white-space: pre-wrap; font-family: 'Courier New', monospace; font-size: 14px;"><code>You are a medical assistant. Please answer the following multiple choice question.
+
+Question:
+Which one of the following specimen is not refrigerated prior to inoculation?
+
+Options:
+A. CSF
+B. Plus
+C. Urine 
+D. Sputum
+
+## Output Format:
+Please provide your answer in JSON format that contains an "answer" field.
+
+Example response format:
+{"answer": "X. exact option text here"}
+
+Important:
+- Please ensure that your answer is in valid JSON format.</code></pre>
+      </div>
+      
+      <h3 style="margin-bottom: 10px; font-size: 18px;">Model Response Example</h3>
+      <div style="background-color: #f0f8ff; border-radius: 6px; padding: 15px; margin-bottom: 20px; overflow: auto; border: 1px solid #d0e0f0;">
+        <pre style="margin: 0; white-space: pre-wrap; font-family: 'Courier New', monospace; font-size: 14px;"><code>{"answer": "A. CSF"}</code></pre>
+      </div>
+      
+      <div style="background-color: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px;">
+        <h4 style="margin-top: 0; margin-bottom: 10px; font-size: 16px;">Evaluation Details</h4>
+        <ul style="padding-left: 20px; margin-bottom: 10px;">
+          <li><strong>Correct Answer:</strong> A. CSF</li>
+          <li><strong>Subject:</strong> Microbiology</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
-
-<div class="bg-white py-12 sm:py-16">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-3xl">
-      <div class="prose prose-lg prose-indigo mx-auto">
-        <h2 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Executive Summary</h2>
-        <p class="text-gray-600">
-          The AI Health Institute has conducted a comprehensive benchmarking study of 6 leading Large Language Models (LLMs) 
-          across various healthcare datasets. This report presents our findings on model performance, accuracy, and suitability 
-          for healthcare applications.
-        </p>
-      </div>
+<!-- Datasets Page -->
+<div id="datasets-page" class="page">
+  <div class="dashboard-header">
+    <div class="title-area">
+      <h1>Benchmark Datasets</h1>
+      <div class="subtitle">Information about our evaluation datasets</div>
     </div>
   </div>
+  
+  <div class="key-insights" style="margin-top: 0;">
+    <h2>MedQA <a href="https://arxiv.org/pdf/2009.13081" target="_blank" style="font-size: 14px; margin-left: 10px; text-decoration: none; color: var(--primary);">[Paper]</a> <a href="https://github.com/jind11/MedQA" target="_blank" style="font-size: 14px; margin-left: 5px; text-decoration: none; color: var(--primary);">[GitHub]</a></h2>
+    <p style="margin-bottom: 20px;">Multiple choice question answering based on the United States Medical License Exams (USMLE).</p>
+    
+    <ul class="insights-list">
+      <li><strong>Size:</strong> 12,723 English questions</li>
+      <li><strong>Benchmark Set:</strong> We evaluate the models against the 10,178 questions in the train split of the data</li>
+      <li><strong>Format:</strong> Single-option multiple choice questions from medical licensing exams</li>
+      <li><strong>Citation:</strong> <span style="font-family: monospace; font-size: 0.9em; background-color: #f8f9fa; padding: 10px; display: block; margin-top: 10px; border-left: 3px solid var(--primary); overflow-x: auto;">Pal, A., Umapathi, L.K. and Sankarasubbu, M., 2022, April. Medmcqa: A large-scale multi-subject multi-choice dataset for medical domain question answering. In *Conference on health, inference, and learning* (pp. 248-260). PMLR.</span></li>
+  </ul>
+  </div>
+  
+  <div class="key-insights">
+    <h2>MedMCQA <a href="https://arxiv.org/pdf/2203.14371" target="_blank" style="font-size: 14px; margin-left: 10px; text-decoration: none; color: var(--primary);">[Paper]</a> <a href="https://github.com/medmcqa" target="_blank" style="font-size: 14px; margin-left: 5px; text-decoration: none; color: var(--primary);">[GitHub]</a></h2>
+    <p style="margin-bottom: 20px;">A large-scale, Multiple-Choice Question Answering (MCQA) dataset designed to address real-world medical entrance exam questions.</p>
+    
+    <ul class="insights-list">
+      <li><strong>Size:</strong> 194,000+ questions</li>
+      <li><strong>Benchmark Set:</strong> We evaluate the models against the 120,765 single-select questions in the train split of the data</li>
+      <li><strong>Format:</strong> Single-option multiple choice questions with explanations</li>
+      <li><strong>Coverage:</strong> 21 medical subjects including anatomy, physiology, biochemistry, pathology, and pharmacology</li>
+      <li><strong>Citation:</strong> <span style="font-family: monospace; font-size: 0.9em; background-color: #f8f9fa; padding: 10px; display: block; margin-top: 10px; border-left: 3px solid var(--primary); overflow-x: auto;">Pal, A., Umapathi, L.K. and Sankarasubbu, M., 2022, April. Medmcqa: A large-scale multi-subject multi-choice dataset for medical domain question answering. In *Conference on health, inference, and learning* (pp. 248-260). PMLR.</span></li>
+    </ul>
+  </div>
+  
 </div>
-
-<div class="bg-gray-50 py-12 sm:py-16">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-4xl">
-      <h2 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl mb-8 text-center">Interactive Benchmarking Visualizations</h2>
-      <div class="aspect-w-16 aspect-h-9 shadow-lg rounded-lg overflow-hidden">
-        <iframe 
-          src="https://ehagey-healthcarebenchmarkingvisualizations.hf.space" 
-          class="w-full h-[600px] border-0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </div>
 </div>
+  </body>
+  </html>
+    
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const benchmarksNav = document.getElementById('benchmarks-nav');
+    
+    const methodologyNav = document.getElementById('methodology-nav');
+    const datasetsNav = document.getElementById('datasets-nav');
+    
+    const benchmarksPage = document.getElementById('benchmarks-page');
+    const methodologyPage = document.getElementById('methodology-page');
+    const datasetsPage = document.getElementById('datasets-page');
+    
+    const medqaButton = document.getElementById('medqa-button');
+    const medmcqaButton = document.getElementById('medmcqa-button');
+    const clinicalNotesButton = document.getElementById('clinical-notes-button');
+    const diagnosisButton = document.getElementById('diagnosis-button');
+    const bedsideMannerButton = document.getElementById('bedside-manner-button');
+    
+    const medqaData = document.getElementById('medqa-data');
+    const medmcqaData = document.getElementById('medmcqa-data');
+    const comingSoonMessage = document.getElementById('coming-soon-message');
+    
+    function clearActiveNavs() {
+        benchmarksNav.classList.remove('active');
+        methodologyNav.classList.remove('active');
+        datasetsNav.classList.remove('active');
+    }
+    
+    function hideAllPages() {
+        benchmarksPage.classList.remove('active-page');
+        methodologyPage.classList.remove('active-page');
+        datasetsPage.classList.remove('active-page');
+        
+        benchmarksPage.style.display = 'none';
+        methodologyPage.style.display = 'none';
+        datasetsPage.style.display = 'none';
+    }
+    
+    function clearActiveDatasetButtons() {
+        medqaButton.classList.remove('active');
+        medmcqaButton.classList.remove('active');
+        clinicalNotesButton.classList.remove('active');
+        diagnosisButton.classList.remove('active');
+        bedsideMannerButton.classList.remove('active');
+    }
+    
+    function hideAllTables() {
+        medqaData.style.display = 'none';
+        medmcqaData.style.display = 'none';
+        comingSoonMessage.style.display = 'none';
+    }
+    
+    benchmarksNav.addEventListener('click', function(e) {
+        e.preventDefault();
+        clearActiveNavs();
+        hideAllPages();
+        benchmarksNav.classList.add('active');
+        benchmarksPage.classList.add('active-page');
+        benchmarksPage.style.display = 'block';
+        
+        clearActiveDatasetButtons();
+        hideAllTables();
+        medqaButton.classList.add('active');
+        medqaData.style.display = 'table';
+        
+        document.getElementById('dataset-title').textContent = 'MedQA Performance Evaluation';
+    });
+    
+    methodologyNav.addEventListener('click', function(e) {
+        e.preventDefault();
+        clearActiveNavs();
+        hideAllPages();
+        methodologyNav.classList.add('active');
+        methodologyPage.classList.add('active-page');
+        methodologyPage.style.display = 'block';
+    });
+    
+    datasetsNav.addEventListener('click', function(e) {
+        e.preventDefault();
+        clearActiveNavs();
+        hideAllPages();
+        datasetsNav.classList.add('active');
+        datasetsPage.classList.add('active-page');
+        datasetsPage.style.display = 'block';
+    });
+    
+    
+    medqaButton.addEventListener('click', function() {
+      clearActiveDatasetButtons();
+      hideAllTables();
+      medqaButton.classList.add('active');
+      medqaData.style.display = 'table';
+      document.getElementById('dataset-title').textContent = 'MedQA Performance Evaluation';
+      
+      document.getElementById('medqa-insights').style.display = 'block';
+      document.getElementById('medmcqa-insights').style.display = 'none';
+  });
+    
+    medmcqaButton.addEventListener('click', function() {
+      clearActiveDatasetButtons();
+      hideAllTables();
+      medmcqaButton.classList.add('active');
+      medmcqaData.style.display = 'table';
+      document.getElementById('dataset-title').textContent = 'MedMCQA Performance Evaluation';
+  });
+    
+  clinicalNotesButton.addEventListener('click', function() {
+    clearActiveDatasetButtons();
+    hideAllTables();
+    clinicalNotesButton.classList.add('active');
+    comingSoonMessage.style.display = 'flex';
+    document.getElementById('dataset-title').textContent = 'Clinical Notes Performance Evaluation';
+    
+    document.getElementById('medqa-insights').style.display = 'none';
+    document.getElementById('medmcqa-insights').style.display = 'none';
+});
+    
+    diagnosisButton.addEventListener('click', function() {
+        clearActiveDatasetButtons();
+        hideAllTables();
+        diagnosisButton.classList.add('active');
+        comingSoonMessage.style.display = 'flex';
+        document.getElementById('dataset-title').textContent = 'Diagnosis Performance Evaluation';
+        document.getElementById('medqa-insights').style.display = 'none';
+        document.getElementById('medmcqa-insights').style.display = 'none';
+    });
+    
+    bedsideMannerButton.addEventListener('click', function() {
+        clearActiveDatasetButtons();
+        hideAllTables();
+        bedsideMannerButton.classList.add('active');
+        comingSoonMessage.style.display = 'flex';
+        document.getElementById('dataset-title').textContent = 'Bedside Manner Performance Evaluation';
+        document.getElementById('medqa-insights').style.display = 'none';
+        document.getElementById('medmcqa-insights').style.display = 'none';
+    });
+    
+    const tabs = document.querySelectorAll('.tab');
 
-<footer class="bg-white">
-  <div class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
-    <div class="flex justify-center space-x-6 md:order-2">
-      <a href="#" class="text-gray-400 hover:text-gray-500">
-        <span class="sr-only">Twitter</span>
-        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-        </svg>
-      </a>
-      <a href="#" class="text-gray-400 hover:text-gray-500">
-        <span class="sr-only">LinkedIn</span>
-        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-        </svg>
-      </a>
-    </div>
-    <div class="mt-8 md:order-1 md:mt-0">
-      <p class="text-center text-xs leading-5 text-gray-500">&copy; 2025 AI Health Institute. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
+const sortButtons = document.querySelectorAll('.sort-button');
+sortButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const column = this.getAttribute('data-column');
+        
+        const currentDirection = this.classList.contains('asc') ? 'asc' : 
+                               (this.classList.contains('desc') ? 'desc' : 'none');
+        
+        sortButtons.forEach(btn => {
+            btn.classList.remove('asc');
+            btn.classList.remove('desc');
+            btn.querySelector('.sort-icon').textContent = '◆';
+        });
+        
+        let newDirection;
+        if (currentDirection === 'desc') {
+            newDirection = 'asc';
+            this.classList.add('asc');
+            this.querySelector('.sort-icon').textContent = '▲';
+        } else {
+            newDirection = 'desc';
+            this.classList.add('desc');
+            this.querySelector('.sort-icon').textContent = '▼';
+        }
+        
+        let activeTable;
+        if (medqaButton.classList.contains('active')) {
+            activeTable = document.getElementById('medqa-data');
+        } else if (medmcqaButton.classList.contains('active')) {
+            activeTable = document.getElementById('medmcqa-data');
+        } else {
+            return;
+        }
+        
+        const rows = Array.from(activeTable.querySelectorAll('tbody tr'));
+        
+        rows.sort((a, b) => {
+            let valueA, valueB;
+            
+            if (column === 'accuracy') {
+                valueA = parseFloat(a.querySelector('.accuracy').textContent);
+                valueB = parseFloat(b.querySelector('.accuracy').textContent);
+            } 
+            else if (column === 'input-cost') {
+                valueA = parseFloat(a.querySelectorAll('.cost')[0].textContent.replace('$', ''));
+                valueB = parseFloat(b.querySelectorAll('.cost')[0].textContent.replace('$', ''));
+            }
+            else if (column === 'output-cost') {
+                valueA = parseFloat(a.querySelectorAll('.cost')[1].textContent.replace('$', ''));
+                valueB = parseFloat(b.querySelectorAll('.cost')[1].textContent.replace('$', ''));
+            }
+            
+            if (newDirection === 'desc') {
+                return valueB - valueA; 
+            } else {
+                return valueA - valueB;
+            }
+        });
+        
+        const tbody = activeTable.querySelector('tbody');
+        rows.forEach(row => {
+            tbody.appendChild(row);
+        });
+        
+        rows.forEach((row, index) => {
+            row.querySelector('.rank').textContent = index + 1;
+        });
+    });
+});
+    
+    benchmarksNav.click();
+
+    const modelData = {
+  'OpenAI o3-mini': {
+    provider: 'OpenAI',
+    type: 'Proprietary',
+    medqa_rank: 1,
+    medqa_accuracy: '95.19%',
+    medmcqa_rank: 4,
+    medmcqa_accuracy: '85.64%'
+  },
+  'DeepSeek-R1': {
+    provider: 'DeepSeek',
+    type: 'Open Weight',
+    medqa_rank: 2,
+    medqa_accuracy: '91.91%',
+    medmcqa_rank: 2,
+    medmcqa_accuracy: '87.96%'
+  },
+  'Llama 3.3 70B Instruct': {
+    provider: 'Meta',
+    type: 'Open Weight',
+    medqa_rank: 3,
+    medqa_accuracy: '90.88%',
+    medmcqa_rank: 1,
+    medmcqa_accuracy: '91.83%'
+  },
+  'Claude 3.7 Sonnet': {
+    provider: 'Anthropic',
+    type: 'Proprietary',
+    medqa_rank: 4,
+    medqa_accuracy: '87.88%',
+    medmcqa_rank: 3,
+    medmcqa_accuracy: '86.15%'
+  },
+  'Gemini Flash 2.0': {
+    provider: 'Google',
+    type: 'Proprietary',
+    medqa_rank: 5,
+    medqa_accuracy: '82.7%',
+    medmcqa_rank: 5,
+    medmcqa_accuracy: '83.28%'
+  },
+  'Gemini 2.0 Flash Lite': {
+    provider: 'Google',
+    type: 'Proprietary',
+    medqa_rank: 6,
+    medqa_accuracy: '77.18%',
+    medmcqa_rank: 6,
+    medmcqa_accuracy: '79.63%'
+  },
+  'Mistral Large 2411': {
+    provider: 'Mistral AI',
+    type: 'Proprietary',
+    medqa_rank: 7,
+    medqa_accuracy: '74.23%',
+    medmcqa_rank: 7,
+    medmcqa_accuracy: '76.01%'
+  },
+  'OpenAI GPT-4o-mini': {
+    provider: 'OpenAI',
+    type: 'Proprietary',
+    medqa_rank: 8,
+    medqa_accuracy: '73.99%',
+    medmcqa_rank: 8,
+    medmcqa_accuracy: '75.22%'
+  },
+  'Mistral Small 3.1 24B': {
+    provider: 'Mistral AI',
+    type: 'Open Weight',
+    medqa_rank: 9,
+    medqa_accuracy: '68.77%',
+    medmcqa_rank: 11,
+    medmcqa_accuracy: '71.75%'
+  },
+  'Qwen2.5 32B Instruct': {
+    provider: 'Alibaba',
+    type: 'Open Weight',
+    medqa_rank: 10,
+    medqa_accuracy: '68.77%',
+    medmcqa_rank: 9,
+    medmcqa_accuracy: '73.11%'
+  },
+  'Gemma 3 - 27b': {
+    provider: 'Google',
+    type: 'Open Weight',
+    medqa_rank: 11,
+    medqa_accuracy: '67.44%',
+    medmcqa_rank: 12,
+    medmcqa_accuracy: '70.14%'
+  },
+  'Gemma 3 27B': {
+    provider: 'Google',
+    type: 'Open Weight',
+    medqa_rank: 11,
+    medqa_accuracy: '67.44%',
+    medmcqa_rank: 12,
+    medmcqa_accuracy: '70.14%'
+  },
+  'Llama 3.2 3B Instruct': {
+    provider: 'Meta',
+    type: 'Open Weight',
+    medqa_rank: 12,
+    medqa_accuracy: '67.29%',
+    medmcqa_rank: 10,
+    medmcqa_accuracy: '72.05%'
+  },
+  'Gemini Flash 1.5 8B': {
+    provider: 'Google',
+    type: 'Open Weight',
+    medqa_rank: 13,
+    medqa_accuracy: '59.59%',
+    medmcqa_rank: 13,
+    medmcqa_accuracy: '64.56%'
+  }
+};
+
+const modelNames = document.querySelectorAll('.model-name');
+
+modelNames.forEach(modelNameElement => {
+  const modelNameText = modelNameElement.textContent.trim();
+  const modelName = Object.keys(modelData).find(name => modelNameText.includes(name));
+  
+  if (modelName && modelData[modelName]) {
+    const model = modelData[modelName];
+    
+    const existingBadges = modelNameElement.querySelectorAll('.param-badge');
+    existingBadges.forEach(badge => badge.remove());
+    
+    const hoverCard = document.createElement('div');
+    hoverCard.className = 'model-hover-card';
+    
+    let otherDataset = '';
+    let currentDataset = '';
+    
+    if (modelNameElement.closest('#medqa-data')) {
+      otherDataset = 'MedMCQA';
+      currentDataset = 'MedQA';
+    } else {
+      otherDataset = 'MedQA';
+      currentDataset = 'MedMCQA';
+    }
+    
+    let otherRank = '';
+    let otherAccuracy = '';
+    
+    if (otherDataset === 'MedMCQA') {
+      otherRank = model.medmcqa_rank;
+      otherAccuracy = model.medmcqa_accuracy;
+    } else {
+      otherRank = model.medqa_rank;
+      otherAccuracy = model.medqa_accuracy;
+    }
+    
+
+    const arrow = document.createElement('div');
+    arrow.className = 'model-hover-arrow';
+    hoverCard.appendChild(arrow);
+    
+    hoverCard.innerHTML += `
+      <h4>${modelName}</h4>
+      <p><strong>Provider:</strong> ${model.provider}</p>
+      <p><strong>Type:</strong> ${model.type}</p>
+      <div class="hover-stats">
+        <div>
+          <span>${currentDataset} Rank</span>
+          <span class="stat-value">#${modelNameElement.closest('tr').querySelector('.rank').textContent}</span>
+        </div>
+        <div>
+          <span>${otherDataset} Rank</span>
+          <span class="stat-value">#${otherRank}</span>
+        </div>
+        <div>
+          <span>${otherDataset} Accuracy</span>
+          <span class="stat-value">${otherAccuracy}</span>
+        </div>
+      </div>
+    `;
+    
+    const existingCards = modelNameElement.querySelectorAll('.model-hover-card');
+    existingCards.forEach(card => card.remove());
+    
+    modelNameElement.appendChild(hoverCard);
+    
+modelNameElement.addEventListener('mouseenter', function() {
+
+  const rect = modelNameElement.getBoundingClientRect();
+  const tableRect = modelNameElement.closest('table').getBoundingClientRect();
+  
+  const isTopHalf = rect.top < (tableRect.top + tableRect.height/2);
+  
+  if (isTopHalf) {
+    hoverCard.style.top = '100%';
+    hoverCard.style.bottom = 'auto';
+
+    arrow.style.top = '-8px';
+    arrow.style.bottom = 'auto';
+    arrow.style.borderTop = '0';
+    arrow.style.borderBottom = '8px solid white';
+  } else {
+
+    hoverCard.style.bottom = '100%';
+    hoverCard.style.top = 'auto';
+
+    arrow.style.bottom = '-8px';
+    arrow.style.top = 'auto';
+    arrow.style.borderBottom = '0';
+    arrow.style.borderTop = '8px solid white';
+  }
+  
+
+  hoverCard.style.left = '50px';
+  
+  hoverCard.style.display = 'block';
+});
+    
+    modelNameElement.addEventListener('mouseleave', function() {
+      hoverCard.style.display = 'none';
+    });
+  }
+});
+});
+  </script>
+  
