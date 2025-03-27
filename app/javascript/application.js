@@ -294,7 +294,7 @@ sortButtons.forEach(button => {
     medmcqa_rank: 9,
     medmcqa_accuracy: '73.11%'
   },
-  'Gemma 3 - 27b': {
+  'Gemma 3 27b': {
     provider: 'Google',
     type: 'Open Weight',
     medqa_rank: 11,
