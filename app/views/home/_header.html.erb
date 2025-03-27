@@ -1,0 +1,148 @@
+<header>
+      <div class="logo">
+        <a href="/" style="text-decoration: none; color: inherit;">
+          <span class="logo-icon" style="color: #38a169;">⚕️</span> AI Health Institute
+        </a>
+      </div>
+      
+      <!-- Hamburger Button (visible on mobile) -->
+      <button class="hamburger" id="hamburger-button" aria-label="Toggle navigation" aria-expanded="false">
+        ☰ 
+      </button>
+      
+      <!-- Navigation -->
+      <nav id="main-nav" class="nav-closed">
+        <ul>
+          <li><a href="#" class="active" id="benchmarks-nav">Benchmarks</a></li>
+          <li><a href="#" id="methodology-nav">Methodology</a></li>
+          <li><a href="#" id="datasets-nav">Datasets</a></li>
+        </ul>
+      </nav>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const hamburger = document.getElementById('hamburger-button');
+          const nav = document.getElementById('main-nav');
+          
+          hamburger.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent click from bubbling to document
+            nav.classList.toggle('nav-closed');
+            const isExpanded = nav.classList.contains('nav-closed') ? 'false' : 'true';
+            hamburger.setAttribute('aria-expanded', isExpanded);
+          });
+
+          // Close menu when clicking outside
+          document.addEventListener('click', function(event) {
+            if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
+              nav.classList.add('nav-closed');
+              hamburger.setAttribute('aria-expanded', 'false');
+            }
+          });
+
+          // Close menu when window is resized to desktop size
+          window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+              nav.classList.remove('nav-closed');
+            }
+          });
+        });
+      </script>
+
+      <style>
+        header {
+          padding: 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+
+        #main-nav ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          gap: 2rem;
+        }
+
+        #main-nav a {
+          text-decoration: none;
+          color: #333;
+        }
+
+        #main-nav a.active {
+          color: #38a169;
+        }
+
+        @media (max-width: 768px) {
+          header {
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+          }
+          
+          .hamburger {
+            display: block;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 100;
+          }
+
+          #main-nav {
+            display: none;
+            width: 100%;
+          }
+
+          #main-nav.nav-closed {
+            display: none;
+          }
+
+          #main-nav:not(.nav-closed) {
+            display: block;
+          }
+
+          #main-nav ul {
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            background: white;
+          }
+
+          #main-nav li {
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+          }
+        }
+
+        @media (min-width: 769px) {
+          .hamburger {
+            display: none;
+          }
+
+          #main-nav {
+            display: block !important;
+          }
+
+          #main-nav.nav-closed {
+            display: block;
+          }
+
+          #main-nav ul {
+            display: flex;
+            gap: 2rem;
+          }
+        }
+      </style>
+    </header>
