@@ -325,6 +325,22 @@ sortButtons.forEach(button => {
     medqa_accuracy: '59.59%',
     medmcqa_rank: 13,
     medmcqa_accuracy: '64.56%'
+  },
+   'Llama 4 Maverick': {
+    provider: 'Meta',
+    type: 'Open Weight',
+    medqa_rank: 2,
+    medqa_accuracy: '92.55%',
+    medmcqa_rank: 1,
+    medmcqa_accuracy: '94.36%'
+  },
+   'Llama 4 Scout': {
+    provider: 'Meta',
+    type: 'Open Weight',
+    medqa_rank: 5,
+    medqa_accuracy: '89.71%',
+    medmcqa_rank: 3,
+    medmcqa_accuracy: '90.03%'
   }
 };
 
