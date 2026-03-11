@@ -219,127 +219,151 @@ sortButtons.forEach(button => {
     type: 'Proprietary',
     medqa_rank: 1,
     medqa_accuracy: '95.19%',
-    medmcqa_rank: 4,
+    medmcqa_rank: 9,
     medmcqa_accuracy: '85.64%'
+  },
+  'OpenAI GPT-5.4': {
+    provider: 'OpenAI',
+    type: 'Proprietary',
+    medqa_rank: 2,
+    medqa_accuracy: '94.14%',
+    medmcqa_rank: 5,
+    medmcqa_accuracy: '89.0%'
+  },
+  'Claude Sonnet 4.6': {
+    provider: 'Anthropic',
+    type: 'Proprietary',
+    medqa_rank: 3,
+    medqa_accuracy: '93.89%',
+    medmcqa_rank: 7,
+    medmcqa_accuracy: '87.61%'
+  },
+  'Claude Opus 4.6': {
+    provider: 'Anthropic',
+    type: 'Proprietary',
+    medqa_rank: 4,
+    medqa_accuracy: '93.27%',
+    medmcqa_rank: 3,
+    medmcqa_accuracy: '90.13%'
   },
   'DeepSeek-R1': {
     provider: 'DeepSeek',
     type: 'Open Weight',
-    medqa_rank: 2,
+    medqa_rank: 6,
     medqa_accuracy: '91.91%',
-    medmcqa_rank: 2,
+    medmcqa_rank: 6,
     medmcqa_accuracy: '87.96%'
   },
   'Llama 3.3 70B Instruct': {
     provider: 'Meta',
     type: 'Open Weight',
-    medqa_rank: 3,
+    medqa_rank: 7,
     medqa_accuracy: '90.88%',
-    medmcqa_rank: 1,
+    medmcqa_rank: 2,
     medmcqa_accuracy: '91.83%'
   },
   'Claude 3.7 Sonnet': {
     provider: 'Anthropic',
     type: 'Proprietary',
-    medqa_rank: 4,
+    medqa_rank: 9,
     medqa_accuracy: '87.88%',
-    medmcqa_rank: 3,
+    medmcqa_rank: 8,
     medmcqa_accuracy: '86.15%'
   },
   'Gemini Flash 2.0': {
     provider: 'Google',
     type: 'Proprietary',
-    medqa_rank: 5,
+    medqa_rank: 10,
     medqa_accuracy: '82.7%',
-    medmcqa_rank: 5,
+    medmcqa_rank: 10,
     medmcqa_accuracy: '83.28%'
   },
   'Gemini 2.0 Flash Lite': {
     provider: 'Google',
     type: 'Proprietary',
-    medqa_rank: 6,
+    medqa_rank: 11,
     medqa_accuracy: '77.18%',
-    medmcqa_rank: 6,
+    medmcqa_rank: 11,
     medmcqa_accuracy: '79.63%'
   },
   'Mistral Large 2411': {
     provider: 'Mistral AI',
     type: 'Proprietary',
-    medqa_rank: 7,
+    medqa_rank: 12,
     medqa_accuracy: '74.23%',
-    medmcqa_rank: 7,
+    medmcqa_rank: 12,
     medmcqa_accuracy: '76.01%'
   },
   'OpenAI GPT-4o-mini': {
     provider: 'OpenAI',
     type: 'Proprietary',
-    medqa_rank: 8,
+    medqa_rank: 13,
     medqa_accuracy: '73.99%',
-    medmcqa_rank: 8,
+    medmcqa_rank: 13,
     medmcqa_accuracy: '75.22%'
   },
   'Mistral Small 3.1 24B': {
     provider: 'Mistral AI',
     type: 'Open Weight',
-    medqa_rank: 9,
+    medqa_rank: 14,
     medqa_accuracy: '68.77%',
-    medmcqa_rank: 11,
+    medmcqa_rank: 16,
     medmcqa_accuracy: '71.75%'
   },
   'Qwen2.5 32B Instruct': {
     provider: 'Alibaba',
     type: 'Open Weight',
-    medqa_rank: 10,
+    medqa_rank: 15,
     medqa_accuracy: '68.77%',
-    medmcqa_rank: 9,
+    medmcqa_rank: 14,
     medmcqa_accuracy: '73.11%'
   },
   'Gemma 3 27b': {
     provider: 'Google',
     type: 'Open Weight',
-    medqa_rank: 11,
+    medqa_rank: 16,
     medqa_accuracy: '67.44%',
-    medmcqa_rank: 12,
+    medmcqa_rank: 17,
     medmcqa_accuracy: '70.14%'
   },
   'Gemma 3 27B': {
     provider: 'Google',
     type: 'Open Weight',
-    medqa_rank: 11,
+    medqa_rank: 16,
     medqa_accuracy: '67.44%',
-    medmcqa_rank: 12,
+    medmcqa_rank: 17,
     medmcqa_accuracy: '70.14%'
   },
   'Llama 3.2 3B Instruct': {
     provider: 'Meta',
     type: 'Open Weight',
-    medqa_rank: 12,
+    medqa_rank: 17,
     medqa_accuracy: '67.29%',
-    medmcqa_rank: 10,
+    medmcqa_rank: 15,
     medmcqa_accuracy: '72.05%'
   },
   'Gemini Flash 1.5 8B': {
     provider: 'Google',
     type: 'Open Weight',
-    medqa_rank: 13,
+    medqa_rank: 18,
     medqa_accuracy: '59.59%',
-    medmcqa_rank: 13,
+    medmcqa_rank: 18,
     medmcqa_accuracy: '64.56%'
   },
-   'Llama 4 Maverick': {
+  'Llama 4 Maverick': {
     provider: 'Meta',
     type: 'Open Weight',
-    medqa_rank: 2,
+    medqa_rank: 5,
     medqa_accuracy: '92.55%',
     medmcqa_rank: 1,
     medmcqa_accuracy: '94.36%'
   },
-   'Llama 4 Scout': {
+  'Llama 4 Scout': {
     provider: 'Meta',
     type: 'Open Weight',
-    medqa_rank: 5,
+    medqa_rank: 8,
     medqa_accuracy: '89.71%',
-    medmcqa_rank: 3,
+    medmcqa_rank: 4,
     medmcqa_accuracy: '90.03%'
   }
 };
